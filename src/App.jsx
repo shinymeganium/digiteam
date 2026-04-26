@@ -3,7 +3,6 @@ import { SearchBar } from "./components/SearchBar";
 import { TeamSidebar } from "./components/TeamSidebar";
 import { DigimonProvider } from "./DigimonContext";
 
-
 export default function App() {
   return (
     <DigimonProvider>
@@ -20,7 +19,6 @@ export default function App() {
           <TeamSidebar />
         </div>
       </div>
-
     </DigimonProvider>
   );
 }

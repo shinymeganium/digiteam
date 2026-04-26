@@ -16,7 +16,9 @@ export const DigimonCard = ({ data, isOpen, setIsOpen }) => {
         </div>
 
         <div className="p-2 overflow-scroll border">
-          {data.descriptions[1].description}
+          {data.descriptions && data.descriptions.length > 0 ?
+          data.descriptions[1].description :
+          "No info..."}
         </div>
 
         <button className="border" onClick={toggle}>Close</button>

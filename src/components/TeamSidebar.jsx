@@ -5,10 +5,6 @@ import { TeamCard } from "./TeamCard";
 export const TeamSidebar = () => {
   const { state, dispatch } = useContext(DigimonContext);
 
-  // useEffect(() => {
-  //   console.log(state.team.length)
-  // }, [state])
-
   return (
     <div className="basis-sm">
       {state.loading && <p>Loading team...</p>}

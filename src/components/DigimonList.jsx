@@ -3,7 +3,6 @@ import { DigimonContext } from "../DigimonContext";
 import { InfoCard } from "./InfoCard";
 
 export const DigimonList = () => {
-  const url = "https://digi-api.com/api/v1/digimon";
   const { state, dispatch } = useContext(DigimonContext);
 
   useEffect(() => {
@@ -11,11 +10,11 @@ export const DigimonList = () => {
       dispatch({ type: "SET_LOADING" });
 
       try {
-        const response = await fetch(`${url}?pageSize=9`);
+        const response = await fetch(`${state.apiUrl}?pageSize=9`);
         const data = await response.json();
 
         //console.log(data.content)
-        dispatch({ type: "SET_LIST", payload: data.content });
+        dispatch({ type: "SET_FILTERED", payload: data.content });
       }
       catch (error) {
         console.error("Error fetching Digimon:", error);
@@ -27,12 +26,12 @@ export const DigimonList = () => {
 
   return (
     <div className="grow">
-      {state.loading && <p>Loading Digimon...</p>}
+      {state.loading && <p>Loading...</p>}
 
-      <div className="grid grid-cols-3 gap-1">
-        {state.digimonList.map(digimon => 
+      <div className="grid grid-cols-3 gap-1 p-1 border">
+        {state.filtered.map((digimon) => (
           <InfoCard key={digimon.id} data={digimon} />
-        )}
+        ))}
       </div>
     </div>
   );

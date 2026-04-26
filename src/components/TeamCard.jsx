@@ -6,7 +6,7 @@ export const TeamCard = ({ data }) => {
   const { state, dispatch } = useContext(DigimonContext);
   const [isOpen, setIsOpen] = useState(false);
 
-  const showData = async () => { setIsOpen(prev => !prev) };
+  const showData = () => { setIsOpen(prev => !prev) };
 
   const remove = () => {
     dispatch({ type: "REMOVE_FROM_TEAM", payload: data.id });
